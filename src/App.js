@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import './App.css';
-import RoutesComponent from './routes/routes';
+import React, { useState } from 'react'
+import './App.css'
+import RoutesComponent from './routes/routes'
 
-function App() {
+function App () {
   return (
-    <RoutesComponent/>
+    <RoutesComponent />
   )
 }
 
-export default App;
+export default App

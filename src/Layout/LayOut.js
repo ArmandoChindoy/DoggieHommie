@@ -1,7 +1,7 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Footer from './footer';
-import Navbar from './navbar';
+import React from 'react'
+import { Outlet } from 'react-router-dom'
+import Footer from './footer'
+import Navbar from './navbar'
 
 const LayOut = () => {
   return (
@@ -10,7 +10,7 @@ const LayOut = () => {
       <Outlet />
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default LayOut;
+export default LayOut

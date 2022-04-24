@@ -1,21 +1,21 @@
-import React from 'react';
+import React from 'react'
 
-import {Navigate, Outlet} from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 
-const useAuth=()=>{
-  const user=localStorage.getItem('user')
-  if(user){
+const useAuth = () => {
+  // eslint-disable-next-line no-undef
+  const user = localStorage.getItem('user')
+  if (user) {
     return true
   } else {
     return false
   }
 }
 
-const  PublicRoutes=(props) =>{
+const PublicRoutes = (props) => {
+  const auth = useAuth()
 
-  const auth=useAuth()
-
-  return auth?<Navigate to="/dashboard"/>: <Outlet/>
+  return auth ? <Navigate to='/dashboard' /> : <Outlet />
 }
 
-export default PublicRoutes;
+export default PublicRoutes

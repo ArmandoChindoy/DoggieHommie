@@ -1,49 +1,50 @@
-import React from 'react';
+import React from 'react'
 
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom'
 
 const useAuth = () => {
-  //get item from localstorage
+  // get item from localstorage
 
-  let user;
+  let user
 
-  const _user = localStorage.getItem('user');
+  // eslint-disable-next-line no-undef
+  const _user = localStorage.getItem('user')
 
   if (_user) {
-    user = JSON.parse(_user);
-    console.log('user', user);
+    user = JSON.parse(_user)
+    console.log('user', user)
   }
   if (user) {
     return {
       auth: true,
-      role: user.role,
-    };
+      role: user.role
+    }
   } else {
     return {
       auth: false,
-      role: null,
-    };
+      role: null
+    }
   }
-};
+}
 
 const ProtectedRoutes = (props) => {
-  const { auth, role } = useAuth();
+  const { auth, role } = useAuth()
 
-  //if the role required is there or not
+  // if the role required is there or not
   if (props.roleRequired) {
     return auth ? (
       props.roleRequired === role ? (
         <Outlet />
       ) : (
-          <h1>Denied</h1>
-        // <Navigate to="/denied" />
+        <h1>Denied</h1>
+      // <Navigate to="/denied" />
       )
     ) : (
-      <Navigate to="/login" />
-    );
+      <Navigate to='/login' />
+    )
   } else {
-    return auth ? <Outlet /> : <Navigate to="/login" />;
+    return auth ? <Outlet /> : <Navigate to='/login' />
   }
-};
+}
 
-export default ProtectedRoutes;
+export default ProtectedRoutes
