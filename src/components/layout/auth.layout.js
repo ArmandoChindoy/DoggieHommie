@@ -4,7 +4,7 @@ import LogInForm from '@features/auth/components/login-form'
 import { Link } from 'react-router-dom'
 import AppLogo from '@img/4.png'
 
-const AuthLayout = ({ formComponent: FormComponent }) => {
+const AuthLayout = ({ formComponent: FormComponent, onSubmit }) => {
   return (
     <Grid
       container
@@ -26,7 +26,7 @@ const AuthLayout = ({ formComponent: FormComponent }) => {
         alignItems='center'
         style={{ backgroundColor: '#F0F0F0', height: 'inherit', borderRadius: ' 0 1rem 1rem 0' }}
       >
-        <FormComponent />
+        <FormComponent onSubmit={onSubmit} />
       </Grid>
       <Hidden smDown>
         <Grid

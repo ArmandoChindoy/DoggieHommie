@@ -8,7 +8,7 @@ import { Visibility, VisibilityOff } from '@material-ui/icons/index'
 import LoadingButton from '@mui/lab/LoadingButton'
 import GoogleIcon from '@mui/icons-material/Google'
 
-const LogInForm = () => {
+const LogInForm = ({ onSubmit }) => {
   const [values, setValues] = React.useState({
     email: '',
     password: '',
@@ -37,11 +37,12 @@ const LogInForm = () => {
     event.preventDefault()
     setValues({ ...values, loading: true })
     setTimeout(() => {
+      onSubmit()
       setValues({ ...values, loading: false })
     }, 3000)
   }
 
-  const renderForm = () => (
+  const renderForm = (onSubmit) => (
     <form onSubmit={handleSubmit} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '90%' }}>
       <Grid style={{ padding: '1rem', width: '320px' }} container direction='column' alignItems='center' spacing={2} gap={5}>
         <Grid item container xs={12}>
@@ -107,7 +108,7 @@ const LogInForm = () => {
       <Typography variant='h3' style={{ padding: '3rem 0', color: '#C6AB7C' }}>
         Inicia Sesión
       </Typography>
-      {renderForm()}
+      {renderForm(onSubmit)}
       <Button style={{ margin: '2rem 0' }} variant='outlined' startIcon={<GoogleIcon />}>
         Log In
       </Button>

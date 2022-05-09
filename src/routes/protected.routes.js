@@ -10,6 +10,8 @@ const useAuth = () => {
   // eslint-disable-next-line no-undef
   const _user = localStorage.getItem('user')
 
+  console.log('user', _user)
+
   if (_user) {
     user = JSON.parse(_user)
     console.log('user', user)

@@ -15,13 +15,12 @@ import PublicRoutes from './public.routes'
 import ResetPassword from '@pages/ResetPassword'
 import Register from '@pages/Register'
 
-const isAuth = true
 const RoutesComponent = () => (
   <Router>
     <Routes>
       {/** Protected Routes */}
       {/** Wrap all Route under ProtectedRoutes element */}
-      <Route path='/' element={<ProtectedRoutes />}>
+      <Route path='/' element={<ProtectedRoutes roleRequired='user' />}>
         <Route path='/' element={<LayOut />}>
           <Route path='/' element={<Navigate replace to='home' />} />
           <Route path='/home' element={<Home />} />
@@ -31,6 +30,7 @@ const RoutesComponent = () => (
       {/** Wrap all Route under PublicRoutes element */}
       <Route path='/' element={<PublicRoutes />}>
         <Route path='/login' element={<LogIn />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/reset_password' element={<ResetPassword />} />
         <Route path='/register' element={<Register />} />
         <Route path='/' element={<LayOut />}>
